@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DataOps OnCall Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Local MVP</p>
+        <h1>DataOps OnCall Agent</h1>
+      </div>
+      <div class="runtime-strip" aria-label="Runtime status">
+        <span class="status-chip" id="health-status">API --</span>
+        <span class="status-chip" id="skill-count">Skills --</span>
+        <span class="status-chip" id="rag-status">RAG --</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="control-panel" aria-label="Alert input">
+        <section class="panel-block">
+          <div class="section-head">
+            <h2>告警</h2>
+            <button class="ghost-button" id="new-session-button" type="button">New Session</button>
+          </div>
+          <label class="field-label" for="session-id">Session</label>
+          <input id="session-id" class="text-input" type="text" autocomplete="off" />
+
+          <label class="field-label" for="alert-input">Alert</label>
+          <textarea id="alert-input" class="alert-input" rows="8"></textarea>
+
+          <button id="diagnose-button" class="primary-button" type="button">
+            Start Diagnosis
+          </button>
+        </section>
+
+        <section class="panel-block">
+          <h2>Demo Alerts</h2>
+          <div class="demo-list" id="demo-alerts"></div>
+        </section>
+
+        <section class="panel-block">
+          <h2>Recent Incidents</h2>
+          <div class="history-list" id="incident-history"></div>
+        </section>
+      </aside>
+
+      <section class="pipeline-panel" aria-label="Pipeline">
+        <div class="summary-row">
+          <div class="metric">
+            <span class="metric-label">Status</span>
+            <strong id="run-status">idle</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Incident</span>
+            <strong id="incident-id">--</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Diagnosis Skill</span>
+            <strong id="selected-skill">--</strong>
+          </div>
+        </div>
+
+        <section class="pipeline-map">
+          <h2>Workflow</h2>
+          <div class="pipeline-steps" id="pipeline-steps"></div>
+        </section>
+
+        <section class="evidence-board">
+          <div class="evidence-header">
+            <h2>Evidence</h2>
+            <span id="coverage-badge" class="coverage-badge">coverage --</span>
+          </div>
+          <div class="evidence-grid">
+            <div class="evidence-tile">
+              <span>RAG docs</span>
+              <strong id="doc-count">0</strong>
+            </div>
+            <div class="evidence-tile">
+              <span>Tool calls</span>
+              <strong id="tool-count">0</strong>
+            </div>
+            <div class="evidence-tile">
+              <span>Failed tools</span>
+              <strong id="failed-tool-count">0</strong>
+            </div>
+          </div>
+          <div class="volume-chart" id="volume-chart"></div>
+        </section>
+      </section>
+
+      <section class="detail-panel" aria-label="Details">
+        <nav class="tabs" aria-label="Result tabs">
+          <button class="tab-button active" type="button" data-tab="overview">Overview</button>
+          <button class="tab-button" type="button" data-tab="docs">RAG</button>
+          <button class="tab-button" type="button" data-tab="tools">Tools</button>
+          <button class="tab-button" type="button" data-tab="coverage">Coverage</button>
+          <button class="tab-button" type="button" data-tab="report">Report</button>
+          <button class="tab-button" type="button" data-tab="chat">Chat</button>
+        </nav>
+
+        <div class="tab-panel active" id="tab-overview">
+          <div class="result-block">
+            <h2>Alert Context</h2>
+            <dl class="kv-list" id="alert-context"></dl>
+          </div>
+          <div class="result-block">
+            <h2>Diagnosis Skill</h2>
+            <div id="skill-result" class="empty-state">--</div>
+          </div>
+          <div class="result-block">
+            <h2>Plan</h2>
+            <ol class="plan-list" id="plan-list"></ol>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-docs">
+          <div class="doc-list" id="doc-list"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-tools">
+          <div class="tool-timeline" id="tool-timeline"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-coverage">
+          <pre class="json-panel" id="coverage-json">{}</pre>
+        </div>
+
+        <div class="tab-panel" id="tab-report">
+          <article class="report-view" id="report-view"></article>
+        </div>
+
+        <div class="tab-panel" id="tab-chat">
+          <div class="chat-log" id="chat-log"></div>
+          <div class="chat-input-row">
+            <input
+              id="chat-input"
+              class="text-input"
+              type="text"
+              value="它影响哪些下游报表？"
+              autocomplete="off"
+            />
+            <button id="chat-button" class="secondary-button" type="button">Ask</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

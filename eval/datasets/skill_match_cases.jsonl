@@ -1,0 +1,8 @@
+{"case_id":"skill_airflow_001","input":"DAG dwd_order_detail_daily 今天凌晨运行失败，请帮我诊断原因。","expected_skill":"airflow_task_failed"}
+{"case_id":"skill_airflow_002","input":"airflow failed: DAG payment_orders_sync_daily task failed，帮我看下影响范围。","expected_skill":"airflow_task_failed"}
+{"case_id":"skill_partition_001","input":"dws_sales_daily 今天没有生成 dt=2026-05-14 分区，请帮我排查。","expected_skill":"partition_missing"}
+{"case_id":"skill_partition_002","input":"dwd_payment_order 分区未产出，dt=2026-05-14，怀疑上游缺数。","expected_skill":"partition_missing"}
+{"case_id":"skill_volume_001","input":"dws_sales_daily 今日数据量较昨日下降 92%，请判断是否存在数据事故。","expected_skill":"data_volume_drop"}
+{"case_id":"skill_volume_002","input":"dws_sales_daily 行数变少，数据量下降很明显，请分析根因。","expected_skill":"data_volume_drop"}
+{"case_id":"skill_null_rate_001","input":"ads_user_profile 表中 user_id 字段空值率突然升高，请分析影响范围。","expected_skill":"null_rate_spike"}
+{"case_id":"skill_null_rate_002","input":"ads_user_profile.user_id null rate 突然升高，怀疑字段质量异常。","expected_skill":"null_rate_spike"}

@@ -1,0 +1,6 @@
+{"case_id":"rag_volume_runbook","input":"dws_sales_daily 数据量下降 92% 怎么排查","top_k":3,"filters":{"skill_name":"data_volume_drop"},"expected_sources":["docs/runbooks/data_volume_drop.md"]}
+{"case_id":"rag_volume_table","input":"dws_sales_daily 下游销售日报 数据量突降","top_k":5,"filters":{"table_name":"dws_sales_daily"},"expected_sources":["docs/tables/dws_sales_daily.md","docs/runbooks/data_volume_drop.md"]}
+{"case_id":"rag_null_rate_runbook","input":"ads_user_profile user_id 空值率突然升高","top_k":3,"filters":{"skill_name":"null_rate_spike"},"expected_sources":["docs/runbooks/null_rate_spike.md"]}
+{"case_id":"rag_null_rate_quality_rule","input":"user_id null rate 质量规则 threshold failed","top_k":5,"filters":{"table_name":"ads_user_profile"},"expected_sources":["docs/quality_rules/null_rate_check.md","docs/tables/ads_user_profile.md"]}
+{"case_id":"rag_partition_runbook","input":"dws_sales_daily dt=2026-05-14 分区没有生成","top_k":3,"filters":{"skill_name":"partition_missing"},"expected_sources":["docs/runbooks/partition_missing.md"]}
+{"case_id":"rag_airflow_runbook","input":"DAG dwd_order_detail_daily task failed SQL column not found","top_k":3,"filters":{"skill_name":"airflow_task_failed"},"expected_sources":["docs/runbooks/airflow_task_failed.md"]}

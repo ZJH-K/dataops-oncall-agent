@@ -1,0 +1,16 @@
+[
+  {
+    "alert": "dws_sales_daily 今日数据量较昨日下降 92%，请判断是否存在数据事故。",
+    "expected_skill": "data_volume_drop",
+    "expected_entities": {
+      "table_name": "dws_sales_daily",
+      "symptom": "data_volume_drop"
+    },
+    "expected_tools": [
+      "query_data_volume",
+      "query_task_runs",
+      "query_table_partitions",
+      "query_lineage"
+    ]
+  }
+]

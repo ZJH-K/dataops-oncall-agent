@@ -1,0 +1,4 @@
+{"case_id":"tool_airflow_task_failed","input":"DAG dwd_order_detail_daily 今天凌晨运行失败，请帮我诊断原因。","expected_skill":"airflow_task_failed","required_tools":["query_task_runs","query_lineage"]}
+{"case_id":"tool_partition_missing","input":"dws_sales_daily 今天没有生成 dt=2026-05-14 分区，请帮我排查。","expected_skill":"partition_missing","required_tools":["query_table_partitions","query_task_runs","query_lineage"]}
+{"case_id":"tool_data_volume_drop","input":"dws_sales_daily 今日数据量较昨日下降 92%，请判断是否存在数据事故。","expected_skill":"data_volume_drop","required_tools":["query_data_volume","query_task_runs","query_table_partitions","query_lineage"]}
+{"case_id":"tool_null_rate_spike","input":"ads_user_profile 表中 user_id 字段空值率突然升高，请分析影响范围。","expected_skill":"null_rate_spike","required_tools":["query_null_rate","query_task_runs","query_lineage"]}

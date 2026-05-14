@@ -1,0 +1,30 @@
+name: null_rate_spike
+display_name: Null Rate Spike
+version: 1
+summary: Detect and diagnose abnormal increases in field null rate.
+triggers:
+  - 空值率
+  - 空值
+  - "NULL"
+  - null rate
+  - null spike
+  - 突然升高
+  - 升高
+symptoms:
+  - null_rate_spike
+  - field_quality_anomaly
+  - null_rate_anomaly
+required_tools:
+  - query_null_rate
+  - query_task_runs
+  - query_lineage
+evidence_requirements:
+  - field_null_rate_trend
+  - quality_check_status
+  - related_task_status
+  - downstream_impact
+risk_level: high
+requires_confirmation: false
+output_schema: incident_report
+runbook: runbook.md
+examples: examples.json

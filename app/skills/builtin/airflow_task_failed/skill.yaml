@@ -1,0 +1,28 @@
+name: airflow_task_failed
+display_name: Airflow Task Failed
+version: 1
+summary: Detect and diagnose failed scheduled data pipeline tasks.
+triggers:
+  - DAG
+  - 任务失败
+  - 运行失败
+  - task failed
+  - airflow failed
+  - dag failed
+symptoms:
+  - airflow_task_failed
+  - task_failed
+  - dag_failed
+required_tools:
+  - query_task_runs
+  - query_lineage
+evidence_requirements:
+  - failed_task_status
+  - error_message
+  - retry_count
+  - downstream_impact
+risk_level: medium
+requires_confirmation: false
+output_schema: incident_report
+runbook: runbook.md
+examples: examples.json

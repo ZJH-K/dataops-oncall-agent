@@ -1,0 +1,31 @@
+name: data_volume_drop
+display_name: Data Volume Drop
+version: 1
+summary: Detect and diagnose abnormal table row count drops.
+triggers:
+  - 数据量
+  - 数据量下降
+  - 行数变少
+  - 环比下降
+  - 下降
+  - drop in row count
+  - volume anomaly
+symptoms:
+  - data_volume_drop
+  - row_count_drop
+  - volume_drop
+required_tools:
+  - query_data_volume
+  - query_task_runs
+  - query_table_partitions
+  - query_lineage
+evidence_requirements:
+  - recent_row_count_trend
+  - current_partition_status
+  - related_task_status
+  - downstream_impact
+risk_level: medium
+requires_confirmation: false
+output_schema: incident_report
+runbook: runbook.md
+examples: examples.json

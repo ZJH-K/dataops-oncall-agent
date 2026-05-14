@@ -1,0 +1,29 @@
+name: partition_missing
+display_name: Partition Missing
+version: 1
+summary: Detect and diagnose missing or delayed table partitions.
+triggers:
+  - 分区
+  - 没有生成
+  - 未产出
+  - partition missing
+  - missing partition
+  - dt=
+symptoms:
+  - partition_missing
+  - partition_not_ready
+  - partition_delayed
+required_tools:
+  - query_table_partitions
+  - query_task_runs
+  - query_lineage
+evidence_requirements:
+  - current_partition_status
+  - upstream_partition_status
+  - related_task_status
+  - downstream_impact
+risk_level: medium
+requires_confirmation: false
+output_schema: incident_report
+runbook: runbook.md
+examples: examples.json

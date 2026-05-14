@@ -1,0 +1,14 @@
+[
+  {
+    "alert": "DAG dwd_order_detail_daily 今天凌晨运行失败，请帮我诊断原因。",
+    "expected_skill": "airflow_task_failed",
+    "expected_entities": {
+      "dag_id": "dwd_order_detail_daily",
+      "symptom": "airflow_task_failed"
+    },
+    "expected_tools": [
+      "query_task_runs",
+      "query_lineage"
+    ]
+  }
+]

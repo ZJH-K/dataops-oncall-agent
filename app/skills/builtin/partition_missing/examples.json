@@ -1,0 +1,16 @@
+[
+  {
+    "alert": "dws_sales_daily 今天没有生成 dt=2026-05-14 分区，请帮我排查。",
+    "expected_skill": "partition_missing",
+    "expected_entities": {
+      "table_name": "dws_sales_daily",
+      "partition_date": "2026-05-14",
+      "symptom": "partition_missing"
+    },
+    "expected_tools": [
+      "query_table_partitions",
+      "query_task_runs",
+      "query_lineage"
+    ]
+  }
+]

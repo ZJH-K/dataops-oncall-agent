@@ -1,0 +1,16 @@
+[
+  {
+    "alert": "ads_user_profile 表中 user_id 字段空值率突然升高，请分析影响范围。",
+    "expected_skill": "null_rate_spike",
+    "expected_entities": {
+      "table_name": "ads_user_profile",
+      "field_name": "user_id",
+      "symptom": "null_rate_spike"
+    },
+    "expected_tools": [
+      "query_null_rate",
+      "query_task_runs",
+      "query_lineage"
+    ]
+  }
+]
